@@ -1,18 +1,25 @@
 # YukGit – Git Auto‑Committer
 
-> **Stop typing `git add . && git commit -m "..." && git push` – let YukGit do it for you, with style!**
+**YukGit** watches a local Git repository that is connected to a remote (e.g., GitHub).  
+If your local repo has new commits, it **pushes** them to remote.  
+If the remote is ahead in commits, it **pulls** (with rebase) to keep everything in sync – all automatically!
 
-YukGit is a **smart Git automation tool** for developers who want to **stay in the flow**. It watches a local Git repository, intelligently commits changes after a period of inactivity, and automatically synchronises with the remote – all while presenting a **live, animated dashboard** in your terminal.
+All happening in a specific time rate which you choose.
+
+> **Stop typing `git add . && git commit -m "..." && git push` – let YukGit do it for you, with style!**
 
 ---
 
-## 🚀 Why YukGit?
+## 🚀 What It Does
 
-- **Stop interrupting your workflow** – no more manual commits after every small change.
-- **Stay in sync** – automatically pulls remote changes (with rebase) before pushing, so you never get rejected.
-- **Never lose work** – every change is committed after a cooldown, so your progress is always saved.
-- **Beautiful terminal UI** – enjoy a live dashboard with ASCII art, colour‑cycling headers, progress bars, and a scrolling event log.
-- **Fully configurable** – set your own cooldown, ignore patterns, remote, and branch.
+- Monitors a local folder that is a Git repository.
+- When you make changes (create, modify, delete files), it waits for a short cooldown.
+- Then it automatically:
+  - Stages all changes (`git add .`)
+  - Commits them with a descriptive message
+  - Pushes to the remote
+  - If the remote has new commits, it pulls them first (with rebase) to avoid rejection
+- All of this is displayed in a beautiful live terminal dashboard.
 
 ---
 
@@ -27,7 +34,7 @@ YukGit is a **smart Git automation tool** for developers who want to **stay in t
 | **First‑Run Wizard** | Guides you through setting up your repo, remote, branch, and ignore patterns. |
 | **Persistent Config** | Saves all settings in `./config/config.json`. |
 | **Detailed Logging** | Every operation is logged to `./logs/yukgit.log` for debugging. |
-| **Zero Dependencies?** | Requires only 4 lightweight libraries: `rich`, `pyfiglet`, `colorama`, `watchdog`. |
+| **Lightweight** | Requires only 4 libraries: `rich`, `pyfiglet`, `colorama`, `watchdog`. |
 | **Cross‑Platform** | Works on Windows, macOS, and Linux. |
 
 ---
@@ -52,3 +59,6 @@ source venv/bin/activate    # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install rich pyfiglet colorama watchdog
+
+# Run YukGit
+python yukgit.py
