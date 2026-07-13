@@ -1,40 +1,52 @@
-# YukGit – God‑Mode Git Auto‑Committer
+# YukGit – Git Auto‑Committer
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+> **Stop typing `git add . && git commit -m "..." && git push` – let YukGit do it for you, with style!**
 
-YukGit is a **terminal‑based Git automation tool** that monitors a local repository and automatically commits & pushes changes after a configurable idle period. It features a **live, animated dashboard** with real‑time status, event logs, and progress indicators – all in a beautiful Rich‑powered UI.
-
-![YukGit Demo](https://via.placeholder.com/800x400?text=YukGit+Live+Dashboard)
+YukGit is a **smart Git automation tool** for developers who want to **stay in the flow**. It watches a local Git repository, intelligently commits changes after a period of inactivity, and automatically synchronises with the remote – all while presenting a **live, animated dashboard** in your terminal.
 
 ---
 
-## 🚀 Features
+## 🚀 Why YukGit?
 
-- **Zero‑configuration start** – guides you through first‑time setup.
-- **Live dashboard** with:
-  - Animated ASCII art (colour‑cycling)
-  - Repository info, remote, branch, commit count
-  - Real‑time cooldown countdown with progress bar
-  - Last operation status (commit / pull / push) with timestamp
-  - Scrolling event log (last 5 file changes)
-- **Automatic commit** after a cooldown (default 30s, configurable 15‑900s).
-- **Smart sync** – if the remote is ahead, it pulls with rebase before pushing.
-- **Ignore patterns** – ignore specific files, folders, or glob patterns (e.g., `*.log`, `venv/`).
-- **Config persistence** – all settings saved locally in `./config/config.json`.
-- **Logging** – every operation logged to `./logs/yukgit.log`.
-- **Handles empty repositories** – initialises Git, sets user, and creates `.gitkeep` files for empty folders.
+- **Stop interrupting your workflow** – no more manual commits after every small change.
+- **Stay in sync** – automatically pulls remote changes (with rebase) before pushing, so you never get rejected.
+- **Never lose work** – every change is committed after a cooldown, so your progress is always saved.
+- **Beautiful terminal UI** – enjoy a live dashboard with ASCII art, colour‑cycling headers, progress bars, and a scrolling event log.
+- **Fully configurable** – set your own cooldown, ignore patterns, remote, and branch.
 
 ---
 
-## 🛠️ Installation
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| **Live Dashboard** | Animated ASCII art, real‑time status, event log, and progress bars – all in your terminal. |
+| **Automatic Commits** | Stages and commits changes after a cooldown (configurable 15‑900 seconds). |
+| **Smart Sync** | If remote is ahead, pulls with rebase before pushing; retries on failure. |
+| **Ignore Patterns** | Ignore specific files, folders, or glob patterns (e.g., `*.log`, `venv/`). |
+| **First‑Run Wizard** | Guides you through setting up your repo, remote, branch, and ignore patterns. |
+| **Persistent Config** | Saves all settings in `./config/config.json`. |
+| **Detailed Logging** | Every operation is logged to `./logs/yukgit.log` for debugging. |
+| **Zero Dependencies?** | Requires only 4 lightweight libraries: `rich`, `pyfiglet`, `colorama`, `watchdog`. |
+| **Cross‑Platform** | Works on Windows, macOS, and Linux. |
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Git installed and available in your PATH
+
+### Step‑by‑Step
 
 ```bash
 # Clone the repository
 git clone https://github.com/yuka-dev12/yukgit.git
 cd yukgit
 
-# Create and activate a virtual environment (optional but recommended)
+# (Recommended) Create a virtual environment
 python -m venv venv
 source venv/bin/activate    # On Windows: venv\Scripts\activate
 
